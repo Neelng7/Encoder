@@ -142,5 +142,3 @@ function copy(id){
     navigator.clipboard.writeText(document.getElementById(id).value);
     alert("Copied to Clipboard");
 }
-//  10-num
-// Auth first 5 digits 
