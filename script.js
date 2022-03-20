@@ -1,6 +1,6 @@
 var database = firebase.database();
 const symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@%&()?/>`~^<|;[]*#-_$=+}':., ";
-const symbols_9 = ".19[!-&-*";
+const symbols_9 = ".19[!+&-*";
 const encryptionOperaters = ["*","+","*","+","*","+","*","+8","*","*","+8","+","*","+12","+3","+","+4","+","*","*"];
 const decryptionOperaters = ["/","-","/","-","/","-","/","-8","/","/","-8","-","/","-12","-3","-","-4","-","/","/"];
 
@@ -86,7 +86,7 @@ function encrypt(IdSno){
     const symbolsModify = symbols.repeat(9);
 
     for(let i=0; i<mssgLenght; i++){
-        const n = eval(symbols.indexOf(originalMssg[i])+encryptionOperatersModify[i]+IdSnoModiify[i]);
+        const n = eval(symbols.indexOf(originalMssg[i])+encryptionOperatersModify[i]+(10-IdSnoModiify[i]));
         decryptedMssg.push(symbolsModify[n]);
         mssgIndex.push(symbols_9[Math.floor((n)/92)]);
     }
@@ -132,7 +132,7 @@ function decrypt(IDSno){
         var mssgNew_2 = symbols.indexOf(originalMssg.slice(mssgLenght,)[i]);
         var mssgNew_2M = mssgNew_2 + 92*mssgNew_1;
 
-        decryptedMssg.push(symbolsModify[eval(mssgNew_2M+decryptionOperatersModify[i]+IdSnoModiify[i])]);
+        decryptedMssg.push(symbolsModify[eval(mssgNew_2M+decryptionOperatersModify[i]+(10-IdSnoModiify[i]))]);
 
     }
     mssgOut.value = decryptedMssg.join("");
