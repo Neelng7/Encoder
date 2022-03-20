@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+    <script type="module">
+        const firebaseConfig = {
+          apiKey: "AIzaSyDuzF3gapHFOeBNlHCyIpOVzNwMYmxN4ak",
+          authDomain: "encoder-1.firebaseapp.com",
+          databaseURL: "https://encoder-1-default-rtdb.firebaseio.com",
+          projectId: "encoder-1",
+          storageBucket: "encoder-1.appspot.com",
+          messagingSenderId: "285372713254",
+          appId: "1:285372713254:web:88fb6d571b9f4b565219e7"
+        };      
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link class="link" rel="icon" href="images/Logo.png" type="image/icon type"> -->
+    <title>Message Encoder - Secure</title>
+</head>
+<body>
+    <header><br>
+        <b><i class="fa-solid fa-key"></i></b>
+        <b id="pageName">Secure</b>
+        <a onclick="anchorChange('encrypt')" class="selected">Message Encrypter</a>
+        <a onclick="anchorChange('decrypt')">Message Decrypter</a><br>.
+    </header>
+
+    <div id="encoder">
+        <h1>Secure</h1>
+        <h2>Message Encoder</h2>
+        <table>
+            <tr>
+                <td><label for="incriptionId-e" min="10" max="15">Encription ID: </label></td>
+                <td><input type="text" placeholder="incription id" id="incriptionId-e"></td>
+                <td><button title="Generate random ID" onclick="generateID()"><i class="fa-solid fa-dice"></i></button>
+                <button title="Copy to Clipboard" onclick="copy('incriptionId-e')"><i class="fa-solid fa-copy"></i></button></td>
+            </tr>
+            <tr>
+                <td><label for="mssgInp-e">Message: </label></td>
+                <td><textarea id="mssgInp-e" placeholder="message" cols="30" rows="2"></textarea></td>
+                <td><button title="Enter" onclick="encryptionData()"><i class="fa-solid fa-check"></i></button></td>
+            </tr>
+            <tr>
+                <td><label for="mssgOut-e">Encoded Message: </label></td>
+                <td><textarea id="mssgOut-e" placeholder="encoded message" disabled cols="30" rows="2"></textarea></td>
+                <td><button onclick="location.reload()" title="Reset"><i class="fa-solid fa-rotate-right"></i></button>
+                <button title="Copy to Clipboard" onclick="copy('mssgOut-e')"><i class="fa-solid fa-copy"></i></button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="hide" id="decoder">
+        <h1>Secure</h1>
+        <h2>Message Decoder</h2>
+        <table>
+            <tr>
+                <td><label for="incriptionId-d" min="10" max="15">Encription ID: </label></td>
+                <td><input type="text" placeholder="incription id" id="incriptionId-d"></td>
+            </tr>
+            <tr>
+                <td><label for="mssgInp-d">Encoded Message: </label></td>
+                <td><textarea id="mssgInp-d" placeholder="encoded message" cols="30" rows="2"></textarea></td>
+                <td><button title="Enter" onclick="decryptionData()"><i class="fa-solid fa-check"></i></button></td>
+            </tr>
+            <tr>
+                <td><label for="mssgOut-d">Decrypted Message: </label></td>
+                <td><textarea id="mssgOut-d" placeholder="message" disabled cols="30" rows="2"></textarea></td>
+                <td><button onclick="location.reload()" title="Reset"><i class="fa-solid fa-rotate-right"></i></button></td>
+        
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+body{
+    background-color: rgb(250,249,248);
+    color: #2e2e2e;
+    font-family: Montserrat;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    user-select: none;
+}
+header{
+    background-color: #2e2e2e;
+    width: 100%;
+    height: fit-content;
+    color: transparent; 
+    text-align: left;
+}
+header b{
+    margin-left: 20px;
+    color: rgb(250,249,248);
+    font-size: 135%;
+    padding: 0;
+}
+header a{
+    color: rgb(250,249,248);
+    margin: 10px;
+    padding: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+#pageName{
+    margin-right: 50px;
+}
+.selected{
+    border-bottom: 1px solid rgb(250,249,248);
+}
+table{
+    margin: 0 auto;
+    text-align: left;
+}
+td{
+    padding: 10px;
+}
+input, textarea{
+    text-align: center;
+    background-color: transparent;
+    border: 1.5px solid #2e2e2e;
+    color: #3a3a3a;
+    vertical-align: middle;
+    width: 100%;
+    resize: vertical;
+}
+button{
+    background: transparent;
+    text-align: center;
+    cursor: pointer;
+    color: #3a3a3a;
+    border: 1.5px solid #2e2e2e;
+}
+button:hover{
+    background: rgb(243, 243, 243);
+    font-family: Arial;
+}
+.hide{
+    display: none;
+}
