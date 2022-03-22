@@ -12,11 +12,23 @@ function generateID(){
         const rand1_76 = Math.floor(Math.random()*76);
         randID.push(symbols[rand1_76]);
     }
-    document.getElementById("incriptionId-e").value = randID.join("");
+    document.getElementById("encriptionId-e").value = randID.join("");
 }
 function generateIdSno(){
     var IDSno = [];
-    for(let i=0; i<25; i++){
+
+    var first5_rand1 = 1+Math.floor(Math.random()*8);
+    var first5_rand2 = 1+Math.floor(Math.random()*Math.floor((13-first5_rand1)/4));
+    var first5_rand3 = 1+Math.floor(Math.random()*Math.floor((13-first5_rand1-first5_rand2)/4));
+    var first5_rand4 = 1+Math.floor(Math.random()*Math.floor((13-first5_rand1-first5_rand2-first5_rand3)/4));
+    var first5_rand5 = 13-first5_rand1-first5_rand2-first5_rand3-first5_rand4;
+    
+    if(first5_rand1<10&&first5_rand1>0&&first5_rand2<10&&first5_rand2>0&&first5_rand3<10&&first5_rand3>0&&
+    first5_rand4>0&&first5_rand4<10&&first5_rand5>0&&first5_rand5<10){
+        IDSno.push(first5_rand1,first5_rand2,first5_rand3,first5_rand4,first5_rand5);
+    }else generateIdSno();
+
+    for(let i=0; i<20; i++){
         IDSno.push(1+Math.floor(Math.random()*8));
     }
     globalThis.randSno = IDSno.join("");
@@ -46,7 +58,7 @@ function anchorChange(type){
 }
 
 function encryptionData(){
-    const enteredID = document.getElementById("incriptionId-e").value;
+    const enteredID = document.getElementById("encriptionId-e").value;
     var IDSno;
 
     if(enteredID.includes(".")||enteredID.includes("#")||enteredID.includes("$")) alert('ID cannot contain ".", "#", "$", "[", or "]"');
@@ -59,7 +71,13 @@ function encryptionData(){
         IDSno_ref.once("value",function(data){
         IDSno = data.val();
 
-        if(IDSno != null) encrypt(IDSno.slice(5,));
+        if(IDSno != null){
+            var confirmIDSno = IDSno.slice(0,5).split("");
+            if(parseInt(confirmIDSno[0])+parseInt(confirmIDSno[1])+parseInt(confirmIDSno[2])
+            +parseInt(confirmIDSno[3])+parseInt(confirmIDSno[4])==13){
+            encrypt(IDSno.slice(5,));
+            }else alert("ID is invalid");
+        }
         else{
             generateIdSno();
             database.ref("/IDs/").update({
@@ -88,14 +106,14 @@ function encrypt(IdSno){
     for(let i=0; i<mssgLenght; i++){
         const n = eval(symbols.indexOf(originalMssg[i])+encryptionOperatersModify[i]+(10-IdSnoModiify[i]));
         decryptedMssg.push(symbolsModify[n]);
-        mssgIndex.push(symbols_9[Math.floor((n)/92)]);
+        mssgIndex.push(symbols_9[Math.floor(n/92)]);
     }
     mssgOut.value = mssgIndex.join("")+decryptedMssg.join("");
 
 }
 
 function decryptionData(){
-    const enteredID = document.getElementById("incriptionId-d").value;
+    const enteredID = document.getElementById("encriptionId-d").value;
     var IDSno;
 
     if(enteredID.includes(".")||enteredID.includes("#")||enteredID.includes("$")) alert('ID cannot contain ".", "#", "$", "[", or "]"');
@@ -107,8 +125,13 @@ function decryptionData(){
             IDSno_ref.once("value",function(data){
             IDSno = data.val();
 
-            if(IDSno != null) decrypt(IDSno.slice(5,).toString());
-            else alert("ID is invalid");
+            if(IDSno != null){
+                var confirmIDSno = IDSno.slice(0,5).split("");
+                if(parseInt(confirmIDSno[0])+parseInt(confirmIDSno[1])+parseInt(confirmIDSno[2])
+                +parseInt(confirmIDSno[3])+parseInt(confirmIDSno[4])==13){
+                decrypt(IDSno.slice(5,));
+                }else alert("ID is invalid");
+            }else alert("ID is invalid");
         });
     }
 }
