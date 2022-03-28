@@ -161,6 +161,13 @@ function decrypt(IDSno){
     mssgOut.value = decryptedMssg.join("");
 }
 
+const dropDownButton = document.getElementById("dropdown-button");
+const dropDownMenu = document.getElementById("dropdown");
+
+dropDownButton.addEventListener('click', () => {
+    dropDownMenu.classList.toggle("hide");
+})
+
 function copy(id){
     navigator.clipboard.writeText(document.getElementById(id).value);
     alert("Copied to Clipboard");
