@@ -34,8 +34,8 @@ function generateIdSno(){
     globalThis.randSno = IDSno.join("");
 }
 
-const a1 = document.getElementsByTagName("a")[0].classList;
-const a2 = document.getElementsByTagName("a")[1].classList;
+const a1 = document.getElementsByTagName("a")[1].classList;
+const a2 = document.getElementsByTagName("a")[2].classList;
 const encoderDiv = document.getElementById("encoder").classList;
 const decoderDiv = document.getElementById("decoder").classList;
 if(window.location.href.split("#")[1]!=undefined) anchorChange(window.location.href.split("#")[1]);
