@@ -22,7 +22,7 @@ header b{
     font-size: 135%;
     padding: 0;
 }
-header a{
+a{
     color: rgb(250,249,248);
     margin: 10px;
     padding: 0;
@@ -58,10 +58,56 @@ button{
     color: #3a3a3a;
     border: 1.5px solid #2e2e2e;
 }
-button:hover{
+main>button:hover{   
     background: rgb(243, 243, 243);
     font-family: Arial;
 }
+header > button{
+    color: white;
+    font-size: 150%;
+    display: none;
+}
+header > button:hover{
+    background: transparent;
+}
+
+ol{                    
+    background: #2e2e2e;
+    margin: 0;
+    border-top: 1px solid white;
+}
+li{
+    margin: 0;
+    color: white;
+    list-style-type: none;
+    text-align: left;
+    padding: 22px;
+}
+li:hover{
+    background-color: #3a3a3a;
+}                            
+
 .hide{
     display: none;
+}
+
+@media only screen and (max-width: 555px){
+    
+    #dropdown-button{
+        display: inline;
+        /* position: relative; */
+        margin-right: 20px;
+        float: right;
+        border: none;
+    }
+    header > a{
+        display: none;
+    }
+}
+@media only screen and (max-width: 450px){
+    tr{
+        display: grid;
+        padding: 5px;
+    }
+    td{padding: 7px;}
 }
