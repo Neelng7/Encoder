@@ -38,11 +38,13 @@ const a1 = document.getElementsByTagName("a")[1].classList;
 const a2 = document.getElementsByTagName("a")[2].classList;
 const encoderDiv = document.getElementById("encoder").classList;
 const decoderDiv = document.getElementById("decoder").classList;
+const dropDownMenu = document.getElementById("dropdown");
 if(window.location.href.split("#")[1]!=undefined) anchorChange(window.location.href.split("#")[1]);
 
 function anchorChange(type){
     window.location.href = `#${type}`;
     const pageType = window.location.href.split("#")[1];
+    dropDownMenu.classList.toggle("hide", true);
 
     if(pageType == "encrypt"){
         a1.toggle("selected",true);
@@ -162,7 +164,6 @@ function decrypt(IDSno){
 }
 
 const dropDownButton = document.getElementById("dropdown-button");
-const dropDownMenu = document.getElementById("dropdown");
 
 dropDownButton.addEventListener('click', () => {
     dropDownMenu.classList.toggle("hide");
