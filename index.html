@@ -22,20 +22,31 @@
 
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <link class="link" rel="icon" href="https://neelng7.github.io/Encoder/images/logo.png" type="image/icon type">
+    <link class="link" rel="icon" href="images/Logo.png" type="image/icon type">
     <title>Message Encoder - Secure</title>
 </head>
 <body>
     <header><br>
-        <b><i class="fa-solid fa-key"></i></b>
-        <b id="pageName">Secure</b>
+        <a href="/Encoder/"><b><i class="fa-solid fa-key"></i></b>
+        <b id="pageName">Secure</b></a>
         <a onclick="anchorChange('encrypt')" class="selected">Message Encrypter</a>
-        <a onclick="anchorChange('decrypt')">Message Decrypter</a><br>.
+        <a onclick="anchorChange('decrypt')">Message Decrypter</a>
+        <div class="hide" id="dropdown-button"><button><i style="color:white;font-size:160%;" class="fa-solid fa-bars"></i></button></div><br>.
     </header>
 
+    <div id="dropdown" class="hide">
+        <ol>
+            <a onclick="anchorChange('encrypt')"><li>Message Encrypter</li></a>
+            <a onclick="anchorChange('decrypt')"><li>Message Decrypter</li></a>
+        </ol>
+    </div>
+
+<main>
     <div id="encoder">
+
         <h1>Secure</h1>
         <h2>Message Encoder</h2>
+
         <table>
             <tr>
                 <td><label for="encriptionId-e" min="10" max="15">Encription ID: </label></td>
@@ -58,8 +69,10 @@
     </div>
 
     <div class="hide" id="decoder">
+
         <h1>Secure</h1>
         <h2>Message Decoder</h2>
+
         <table>
             <tr>
                 <td><label for="encriptionId-d" min="10" max="15">Encription ID: </label></td>
@@ -78,6 +91,7 @@
             </tr>
         </table>
     </div>
+</main>
 
 </body>
 </html>
