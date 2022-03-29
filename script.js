@@ -109,7 +109,7 @@ function encrypt(IdSno){
         if(symbols.includes(originalMssg[i])){
             const n = eval(symbols.indexOf(originalMssg[i])+encryptionOperatersModify[i]+(10-IdSnoModiify[i]));
             decryptedMssg.push(symbolsModify[n]);
-            mssgIndex.push(symbols_9[Math.floor(n/92)]);
+            mssgIndex.push(symbols_9[Math.floor(n/symbols.length)]);
         }else{
             decryptedMssg.push(originalMssg[i]);
             mssgIndex.push("?");
@@ -147,7 +147,6 @@ function decrypt(IDSno){
     const originalMssg = document.getElementById("mssgInp-d").value;
     const mssgOut = document.getElementById("mssgOut-d");
     const mssgLenght = originalMssg.length/2; 
-    const mssgIndex = [];
     const decryptedMssg = [];
 
     const arrayTimes = Math.ceil(mssgLenght/20);
@@ -160,7 +159,7 @@ function decrypt(IDSno){
         if(originalMssg.slice(0,mssgLenght)[i] != "?"){
             var mssgNew_1 = symbols_9.indexOf(originalMssg.slice(0,mssgLenght)[i]);
             var mssgNew_2 = symbols.indexOf(originalMssg.slice(mssgLenght,)[i]);
-            var mssgNew_2M = mssgNew_2 + 92*mssgNew_1;
+            var mssgNew_2M = mssgNew_2 + symbols.length*mssgNew_1;
             decryptedMssg.push(symbolsModify[eval(mssgNew_2M+decryptionOperatersModify[i]+(10-IdSnoModiify[i]))]);
         }else{
             decryptedMssg.push(originalMssg.slice(mssgLenght,)[i]);
