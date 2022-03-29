@@ -169,9 +169,13 @@ function decrypt(IDSno){
 }
 
 const dropDownButton = document.getElementById("dropdown-button");
-
 dropDownButton.addEventListener('click', () => {
     dropDownMenu.classList.toggle("hide");
+})
+
+const main = document.getElementsByTagName("main")[0];
+main.addEventListener('click', () => {
+    dropDownMenu.classList.toggle("hide", true);
 })
 
 function copy(id){
