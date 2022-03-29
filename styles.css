@@ -91,11 +91,10 @@ li:hover{
     display: none;
 }
 
-@media only screen and (max-width: 555px){
+@media only screen and (max-width: 580px){
     
     #dropdown-button{
         display: inline;
-        /* position: relative; */
         margin-right: 20px;
         float: right;
         border: none;
