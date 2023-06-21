@@ -125,7 +125,7 @@ function decryptionData(){
 
     if(enteredID.includes(".")||enteredID.includes("#")||enteredID.includes("$")) alert('ID cannot contain ".", "#", "$", "[", or "]"');
     else if(enteredID.includes("[")||enteredID.includes("]")) alert('ID cannot contain ".", "#", "$", "[", or "]"');
-    else if(enteredID.length>20||enteredID.length<10) alert("ID must be between 10-20 characters");
+    else if(enteredID.length>20||enteredID.length<5) alert("ID must be between 5-20 characters");
     else if(document.getElementById("mssgInp-d").value == "") alert("Message cannot be empty");
     else if(enteredID != null){
         var IDSno_ref  = database.ref('/IDs/ID: ' + enteredID);
