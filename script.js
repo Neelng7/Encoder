@@ -182,3 +182,9 @@ function copy(id){
     navigator.clipboard.writeText(document.getElementById(id).value);
     alert("Copied to Clipboard");
 }
+
+//Enter id by default
+const urlID = window.location.search;
+if(urlID != ""){
+    document.getElementById("encriptionId-d").value = urlID.split("?")[1];
+}
